@@ -14,10 +14,36 @@
   <body>
     <div class="container">
       <p id="timer">00:00:00</p>
-
-      <div>
+       <div>
         <button id="start_stop" class="btn btn-lg btn-danger" type="button" name="button">START</button>
       </div>
     </div>
+
+    <script type="text/javascript">
+     var addZero = function(value){
+       if(value < 10){
+         value = '0' + value
+       }
+       return value
+     }
+
+     document.getElementById('start_stop').addEventListener('click',
+     function(){
+       var now = new Date();
+       var seconds = now.getSeconds();
+       var minutes = now.getMinutes();
+       var hours = now.getHours();
+       var test = 1;
+
+       seconds = addZero(seconds);
+       minutes = addZero(minutes);
+       hours = addZero(hours);
+
+       document.getElementById('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
+     });
+
+
+
+    </script>
   </body>
 </html>
